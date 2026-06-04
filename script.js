@@ -3,7 +3,7 @@
 
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    /* ---------- Theme toggle (with persistence + system preference) ---------- */
+    /* ---------- Theme toggle ---------- */
     const root = document.documentElement;
     const themeBtn = document.getElementById('theme-toggle');
     const stored = localStorage.getItem('theme');
@@ -11,10 +11,10 @@
     const applyTheme = (theme) => {
         root.setAttribute('data-theme', theme);
         const meta = document.querySelector('meta[name="theme-color"]:not([media])');
-        if (meta) meta.setAttribute('content', theme === 'dark' ? '#0b1020' : '#ffffff');
+        if (meta) meta.setAttribute('content', theme === 'dark' ? '#0A0114' : '#FAFAF9');
     };
 
-    const initialTheme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    const initialTheme = stored || 'dark';
     applyTheme(initialTheme);
 
     themeBtn?.addEventListener('click', () => {
@@ -50,15 +50,25 @@
         if (e.key === 'Escape') closeMenu();
     });
 
-    /* ---------- Header scroll effect ---------- */
+    /* ---------- Header scroll + scroll progress ---------- */
     const header = document.getElementById('header');
-    let lastScroll = 0;
+    const progressBar = document.getElementById('scrollProgress');
+
+    let ticking = false;
     const onScroll = () => {
         const y = window.scrollY;
-        header.classList.toggle('scrolled', y > 20);
-        lastScroll = y;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = docHeight > 0 ? (y / docHeight) * 100 : 0;
+        if (progressBar) progressBar.style.width = progress + '%';
+        if (header) header.classList.toggle('scrolled', y > 20);
+        ticking = false;
     };
-    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            window.requestAnimationFrame(onScroll);
+            ticking = true;
+        }
+    }, { passive: true });
     onScroll();
 
     /* ---------- Active nav link on scroll ---------- */
@@ -100,6 +110,83 @@
             { rootMargin: '0px 0px -10% 0px', threshold: 0.1 }
         );
         revealEls.forEach((el) => revealObs.observe(el));
+    }
+
+    /* ---------- Count-up stats ---------- */
+    const counters = document.querySelectorAll('[data-count]');
+    if (!prefersReducedMotion && 'IntersectionObserver' in window) {
+        const countObs = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (!entry.isIntersecting) return;
+                    const el = entry.target;
+                    const target = parseInt(el.dataset.count, 10);
+                    const duration = 1200;
+                    const start = performance.now();
+                    const animate = (now) => {
+                        const t = Math.min((now - start) / duration, 1);
+                        const eased = 1 - Math.pow(1 - t, 3);
+                        const current = Math.floor(eased * target);
+                        el.textContent = current;
+                        if (t < 1) requestAnimationFrame(animate);
+                        else el.textContent = target;
+                    };
+                    requestAnimationFrame(animate);
+                    countObs.unobserve(el);
+                });
+            },
+            { threshold: 0.5 }
+        );
+        counters.forEach((c) => countObs.observe(c));
+    } else {
+        counters.forEach((c) => { c.textContent = c.dataset.count; });
+    }
+
+    /* ---------- Copy to clipboard ---------- */
+    const copyBtn = document.getElementById('copyEmail');
+    const toast = document.getElementById('toast');
+    let toastTimer;
+
+    const showToast = (msg) => {
+        if (!toast) return;
+        toast.textContent = msg;
+        toast.classList.add('show');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => toast.classList.remove('show'), 2200);
+    };
+
+    copyBtn?.addEventListener('click', async () => {
+        const text = copyBtn.dataset.copy;
+        if (!text) return;
+        try {
+            await navigator.clipboard.writeText(text);
+            showToast('✓ Email copied to clipboard');
+        } catch {
+            const ta = document.createElement('textarea');
+            ta.value = text;
+            document.body.appendChild(ta);
+            ta.select();
+            try { document.execCommand('copy'); showToast('✓ Email copied'); }
+            catch { showToast('✗ Could not copy'); }
+            document.body.removeChild(ta);
+        }
+    });
+
+    /* ---------- Magnetic buttons (subtle) ---------- */
+    if (!prefersReducedMotion && window.matchMedia('(pointer: fine)').matches) {
+        const magnets = document.querySelectorAll('.magnetic');
+        magnets.forEach((el) => {
+            const strength = 0.25;
+            el.addEventListener('mousemove', (e) => {
+                const rect = el.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                el.style.transform = `translate(${x * strength}px, ${y * strength}px)`;
+            });
+            el.addEventListener('mouseleave', () => {
+                el.style.transform = '';
+            });
+        });
     }
 
     /* ---------- Footer year ---------- */

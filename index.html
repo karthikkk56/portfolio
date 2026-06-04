@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
-    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0A0114" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#FAFAF9" media="(prefers-color-scheme: light)">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
     <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
@@ -27,12 +27,12 @@
     <meta name="twitter:title" content="Karthick Kanna | CS Engineer Portfolio">
     <meta name="twitter:description" content="Computer Science Engineering student passionate about building web and mobile experiences.">
 
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%A1%3C/text%3E%3C/svg%3E">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23A78BFA'/%3E%3Cstop offset='1' stop-color='%23F472B6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='22' fill='url(%23g)'/%3E%3Ctext x='50' y='68' text-anchor='middle' font-family='system-ui' font-size='58' font-weight='800' fill='white'%3EK%3C/text%3E%3C/svg%3E">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
 
     <link rel="stylesheet" href="styles.css">
 
@@ -45,45 +45,48 @@
         "url": "/",
         "email": "mailto:karthickkannakk507@gmail.com",
         "telephone": "+91-9842701478",
-        "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Salem",
-            "addressCountry": "IN"
-        },
-        "alumniOf": {
-            "@type": "CollegeOrUniversity",
-            "name": "VSB College of Engineering and Technical Campus"
-        }
+        "address": { "@type": "PostalAddress", "addressLocality": "Salem", "addressCountry": "IN" },
+        "alumniOf": { "@type": "CollegeOrUniversity", "name": "VSB College of Engineering and Technical Campus" }
     }
     </script>
 </head>
 <body>
     <a href="#main" class="skip-link">Skip to main content</a>
 
-    <div class="bg-gradient" aria-hidden="true">
+    <div class="scroll-progress" aria-hidden="true">
+        <div class="scroll-progress-bar" id="scrollProgress"></div>
+    </div>
+
+    <div class="bg-mesh" aria-hidden="true">
         <div class="orb orb-1"></div>
         <div class="orb orb-2"></div>
         <div class="orb orb-3"></div>
+        <div class="orb orb-4"></div>
+        <div class="grid-overlay"></div>
+        <div class="noise"></div>
     </div>
 
     <header class="header" id="header">
         <nav class="nav container" aria-label="Primary">
             <a href="#home" class="logo" aria-label="Karthick Kanna - Home">
-                <span class="logo-mark">K</span>
-                <span class="logo-text">Karthick<span class="logo-dot">.</span></span>
+                <span class="logo-mark" aria-hidden="true">K</span>
+                <span class="logo-text">karthick<span class="logo-dot">.</span></span>
             </a>
             <ul class="nav-list" id="nav-list">
                 <li><a href="#home" class="nav-link active">Home</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#education" class="nav-link">Education</a></li>
+                <li><a href="#work" class="nav-link">Work</a></li>
+                <li><a href="#stack" class="nav-link">Stack</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
             <div class="nav-actions">
+                <a href="#contact" class="btn btn-primary btn-sm magnetic">
+                    Let's Talk
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+                </a>
                 <button id="theme-toggle" class="icon-btn" aria-label="Toggle color theme" type="button">
-                    <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-                    <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                    <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+                    <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
                 </button>
                 <button id="menu-toggle" class="icon-btn menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-list" type="button">
                     <span></span><span></span><span></span>
@@ -93,171 +96,196 @@
     </header>
 
     <main id="main">
+        <!-- HERO -->
         <section id="home" class="hero">
             <div class="container hero-inner">
-                <div class="hero-content reveal">
-                    <span class="badge">
+                <div class="hero-content">
+                    <span class="chip reveal">
                         <span class="status-dot" aria-hidden="true"></span>
-                        Available for opportunities
+                        Open to opportunities · 2026
                     </span>
-                    <h1 class="hero-title">
-                        Hi, I'm <span class="gradient-text">Karthick Kanna</span>
+                    <h1 class="hero-title reveal">
+                        <span class="line">I build</span>
+                        <span class="line"><span class="gradient-text">digital</span> things</span>
+                        <span class="line">that feel <em>alive</em>.</span>
                     </h1>
-                    <p class="hero-subtitle">
-                        A 4th year Computer Science Engineering student crafting modern web experiences and Android applications.
+                    <p class="hero-subtitle reveal">
+                        Karthick Kanna — 4<sup>th</sup> year CS Engineer at VSB College.
+                        I design and ship fast, accessible web apps and Android products.
                     </p>
-                    <div class="hero-cta">
-                        <a href="#projects" class="btn btn-primary">
-                            View My Work
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+                    <div class="hero-cta reveal">
+                        <a href="#work" class="btn btn-primary magnetic">
+                            See my work
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
                         </a>
-                        <a href="#contact" class="btn btn-ghost">Get in Touch</a>
-                    </div>
-                    <div class="hero-stats">
-                        <div class="stat"><strong>4+</strong><span>Projects Built</span></div>
-                        <div class="stat"><strong>CSE</strong><span>Specialization</span></div>
-                        <div class="stat"><strong>2026</strong><span>Graduating</span></div>
+                        <a href="#contact" class="btn btn-ghost magnetic">Get in touch</a>
                     </div>
                 </div>
-                <div class="hero-visual reveal" aria-hidden="true">
-                    <div class="code-card">
-                        <div class="code-dots"><span></span><span></span><span></span></div>
-                        <pre class="code-body"><code><span class="c-kw">const</span> <span class="c-var">developer</span> <span class="c-op">=</span> {
-  <span class="c-prop">name</span>: <span class="c-str">"Karthick Kanna"</span>,
-  <span class="c-prop">role</span>: <span class="c-str">"CS Engineer"</span>,
-  <span class="c-prop">location</span>: <span class="c-str">"Salem, IN"</span>,
-  <span class="c-prop">passion</span>: <span class="c-bool">true</span>,
-  <span class="c-prop">build</span>: <span class="c-fn">()</span> <span class="c-op">=&gt;</span> <span class="c-str">"awesome things"</span>
+
+                <aside class="hero-card reveal" aria-label="Developer card">
+                    <div class="card-glow" aria-hidden="true"></div>
+                    <header class="hero-card-head">
+                        <span class="avatar" aria-hidden="true">KK</span>
+                        <div>
+                            <strong>Karthick Kanna</strong>
+                            <span>@ Salem, IN</span>
+                        </div>
+                        <span class="badge-pill badge-pill-pink">CS · '26</span>
+                    </header>
+                    <pre class="code-body"><code><span class="c-c">// who I am</span>
+<span class="c-kw">const</span> <span class="c-var">karthick</span> <span class="c-op">=</span> {
+  <span class="c-prop">focus</span>:   [<span class="c-str">"web"</span>, <span class="c-str">"android"</span>],
+  <span class="c-prop">year</span>:    <span class="c-num">4</span>,
+  <span class="c-prop">shipped</span>: <span class="c-num">4</span><span class="c-op">+</span> <span class="c-fn">projects</span>(),
+  <span class="c-prop">vibe</span>:    <span class="c-str">"clean & fast"</span>
 };</code></pre>
-                    </div>
+                    <footer class="hero-card-foot">
+                        <span class="badge-dot badge-dot-lime"></span>
+                        <span>Available · Let's build</span>
+                    </footer>
+                </aside>
+            </div>
+
+            <!-- Marquee strip -->
+            <div class="marquee reveal" aria-hidden="true">
+                <div class="marquee-track">
+                    <span>Web Development</span><span class="dot">●</span>
+                    <span>Android Apps</span><span class="dot">●</span>
+                    <span>UI Engineering</span><span class="dot">●</span>
+                    <span>Clean Code</span><span class="dot">●</span>
+                    <span>Performance</span><span class="dot">●</span>
+                    <span>Accessibility</span><span class="dot">●</span>
+                    <span>Web Development</span><span class="dot">●</span>
+                    <span>Android Apps</span><span class="dot">●</span>
+                    <span>UI Engineering</span><span class="dot">●</span>
+                    <span>Clean Code</span><span class="dot">●</span>
+                    <span>Performance</span><span class="dot">●</span>
+                    <span>Accessibility</span><span class="dot">●</span>
                 </div>
             </div>
-            <a href="#about" class="scroll-hint" aria-label="Scroll to about section">
-                <span></span>
-            </a>
         </section>
 
+        <!-- ABOUT -->
         <section id="about" class="section">
             <div class="container">
-                <header class="section-head reveal">
-                    <span class="eyebrow">About Me</span>
-                    <h2 class="section-title">Building the web, one commit at a time</h2>
+                <header class="section-head section-head-left reveal">
+                    <span class="eyebrow eyebrow-pink">About</span>
+                    <h2 class="section-title">
+                        A builder, learner, and<br>
+                        <span class="gradient-text gradient-pink">final-year engineer.</span>
+                    </h2>
                 </header>
+
                 <div class="about-grid">
                     <div class="about-text reveal">
                         <p>
-                            I'm a final-year Computer Science Engineering student at
-                            <strong>VSB College of Engineering and Technical Campus</strong>,
-                            driven by curiosity and a love for clean, purposeful software.
+                            I'm a 4<sup>th</sup> year Computer Science student at
+                            <strong>VSB College of Engineering and Technical Campus</strong>.
+                            I love the small details — the micro-interactions, the load times,
+                            the way a layout breathes on a real device.
                         </p>
                         <p>
-                            From calculators to Android apps, I enjoy turning ideas into
-                            real products. I care about performance, accessibility, and
-                            the small details that make interfaces feel alive.
+                            From calculators to Android apps, I focus on shipping things that
+                            feel polished. My toolkit is web-first, with a soft spot for
+                            performance budgets and accessibility.
                         </p>
+
                         <ul class="about-meta">
                             <li><span>Based in</span><strong>Salem, India</strong></li>
                             <li><span>Focus</span><strong>Web & Android</strong></li>
                             <li><span>Status</span><strong>Final Year</strong></li>
+                            <li><span>Approach</span><strong>Ship & learn</strong></li>
                         </ul>
                     </div>
-                    <aside class="about-card reveal" aria-label="Quick facts">
-                        <h3>Quick Facts</h3>
-                        <dl>
-                            <div><dt>Name</dt><dd>Karthick Kanna</dd></div>
-                            <div><dt>Age</dt><dd>20</dd></div>
-                            <div><dt>Branch</dt><dd>B.E. CSE</dd></div>
-                            <div><dt>Year</dt><dd>4th Year</dd></div>
-                            <div><dt>Place</dt><dd>Salem</dd></div>
-                        </dl>
+
+                    <aside class="stat-grid reveal" aria-label="Quick stats">
+                        <div class="stat-card stat-card-violet">
+                            <span class="stat-num" data-count="4">0</span>
+                            <span class="stat-label">Projects shipped</span>
+                        </div>
+                        <div class="stat-card stat-card-pink">
+                            <span class="stat-num" data-count="2">0</span>
+                            <span class="stat-label">Platforms (web + mobile)</span>
+                        </div>
+                        <div class="stat-card stat-card-cyan">
+                            <span class="stat-num" data-count="100">0</span>
+                            <span class="stat-label">% curious</span>
+                        </div>
+                        <div class="stat-card stat-card-lime">
+                            <span class="stat-num" data-count="2026">2026</span>
+                            <span class="stat-label">Graduating</span>
+                        </div>
                     </aside>
                 </div>
             </div>
         </section>
 
-        <section id="skills" class="section section-alt">
+        <!-- WORK / PROJECTS -->
+        <section id="work" class="section section-alt">
             <div class="container">
                 <header class="section-head reveal">
-                    <span class="eyebrow">Skills</span>
-                    <h2 class="section-title">Tools & technologies I work with</h2>
+                    <span class="eyebrow eyebrow-cyan">Selected Work</span>
+                    <h2 class="section-title">Things I've built</h2>
+                    <p class="section-sub">A small collection of projects from class, side-quests, and curiosity.</p>
                 </header>
-                <div class="skills-grid">
-                    <article class="skill-card reveal">
-                        <div class="skill-icon" aria-hidden="true">{'</>'}</div>
-                        <h3>Web Development</h3>
-                        <p>HTML, CSS, JavaScript building responsive, accessible interfaces.</p>
-                    </article>
-                    <article class="skill-card reveal">
-                        <div class="skill-icon" aria-hidden="true">📱</div>
-                        <h3>Android Development</h3>
-                        <p>Building mobile apps with thoughtful UX and reliable performance.</p>
-                    </article>
-                    <article class="skill-card reveal">
-                        <div class="skill-icon" aria-hidden="true">🗄️</div>
-                        <h3>Programming & DB</h3>
-                        <p>Strong foundations in programming languages and database design.</p>
-                    </article>
-                    <article class="skill-card reveal">
-                        <div class="skill-icon" aria-hidden="true">⚙️</div>
-                        <h3>Problem Solving</h3>
-                        <p>Algorithmic thinking, data structures, and clean code practices.</p>
-                    </article>
-                </div>
-            </div>
-        </section>
 
-        <section id="projects" class="section">
-            <div class="container">
-                <header class="section-head reveal">
-                    <span class="eyebrow">Projects</span>
-                    <h2 class="section-title">Selected work</h2>
-                </header>
-                <div class="projects-grid">
-                    <article class="project-card reveal">
-                        <div class="project-thumb" data-color="indigo" aria-hidden="true">
-                            <span>🧮</span>
+                <div class="work-grid">
+                    <article class="work-card work-card-large reveal" data-accent="violet">
+                        <div class="work-thumb" aria-hidden="true">
+                            <span class="work-emoji">🧮</span>
+                            <div class="work-pattern"></div>
                         </div>
-                        <div class="project-body">
+                        <div class="work-body">
+                            <span class="work-tag">01 · Web</span>
                             <h3>Calculator</h3>
-                            <p>A clean, responsive calculator with keyboard support and a focus on input clarity.</p>
-                            <ul class="tags" aria-label="Tags">
+                            <p>A crisp, responsive calculator with full keyboard support and careful input handling.</p>
+                            <ul class="tags" aria-label="Tech stack">
                                 <li>HTML</li><li>CSS</li><li>JavaScript</li>
                             </ul>
                         </div>
                     </article>
-                    <article class="project-card reveal">
-                        <div class="project-thumb" data-color="violet" aria-hidden="true">
-                            <span>🌐</span>
+
+                    <article class="work-card reveal" data-accent="pink">
+                        <div class="work-thumb" aria-hidden="true">
+                            <span class="work-emoji">🌐</span>
+                            <div class="work-pattern"></div>
                         </div>
-                        <div class="project-body">
+                        <div class="work-body">
+                            <span class="work-tag">02 · Web</span>
                             <h3>Portfolio Website</h3>
-                            <p>You're looking at it — a fast, accessible, SEO-friendly personal site.</p>
-                            <ul class="tags" aria-label="Tags">
+                            <p>You're looking at it — fast, accessible, and SEO-friendly.</p>
+                            <ul class="tags" aria-label="Tech stack">
                                 <li>HTML</li><li>CSS</li><li>JS</li><li>A11y</li>
                             </ul>
                         </div>
                     </article>
-                    <article class="project-card reveal">
-                        <div class="project-thumb" data-color="teal" aria-hidden="true">
-                            <span>📚</span>
+
+                    <article class="work-card reveal" data-accent="cyan">
+                        <div class="work-thumb" aria-hidden="true">
+                            <span class="work-emoji">📚</span>
+                            <div class="work-pattern"></div>
                         </div>
-                        <div class="project-body">
+                        <div class="work-body">
+                            <span class="work-tag">03 · System</span>
                             <h3>Library Management</h3>
-                            <p>A system to manage books, members, and transactions with a simple workflow.</p>
-                            <ul class="tags" aria-label="Tags">
+                            <p>Manage books, members, and transactions with a clean, fast workflow.</p>
+                            <ul class="tags" aria-label="Tech stack">
                                 <li>DB</li><li>CRUD</li><li>Reports</li>
                             </ul>
                         </div>
                     </article>
-                    <article class="project-card reveal">
-                        <div class="project-thumb" data-color="rose" aria-hidden="true">
-                            <span>🎓</span>
+
+                    <article class="work-card work-card-wide reveal" data-accent="lime">
+                        <div class="work-thumb" aria-hidden="true">
+                            <span class="work-emoji">🎓</span>
+                            <div class="work-pattern"></div>
                         </div>
-                        <div class="project-body">
+                        <div class="work-body">
+                            <span class="work-tag">04 · Mobile</span>
                             <h3>Student Welfare Android App</h3>
-                            <p>A mobile app that surfaces resources, notices, and support to students on the go.</p>
-                            <ul class="tags" aria-label="Tags">
-                                <li>Android</li><li>Mobile</li><li>UI/UX</li>
+                            <p>A mobile app surfacing resources, notices, and student support — fast and offline-friendly.</p>
+                            <ul class="tags" aria-label="Tech stack">
+                                <li>Android</li><li>Mobile UI</li><li>Offline-first</li>
                             </ul>
                         </div>
                     </article>
@@ -265,48 +293,96 @@
             </div>
         </section>
 
-        <section id="education" class="section section-alt">
+        <!-- STACK / SKILLS -->
+        <section id="stack" class="section">
             <div class="container">
                 <header class="section-head reveal">
-                    <span class="eyebrow">Education</span>
-                    <h2 class="section-title">Academic journey</h2>
+                    <span class="eyebrow eyebrow-lime">Stack</span>
+                    <h2 class="section-title">Tools I reach for</h2>
                 </header>
-                <ol class="timeline">
-                    <li class="timeline-item reveal">
-                        <div class="timeline-dot" aria-hidden="true"></div>
-                        <div class="timeline-content">
-                            <span class="timeline-year">2022 – 2026</span>
-                            <h3>B.E. Computer Science & Engineering</h3>
-                            <p>VSB College of Engineering and Technical Campus</p>
-                            <span class="timeline-tag">4th Year</span>
-                        </div>
-                    </li>
-                </ol>
+
+                <div class="stack-grid">
+                    <article class="stack-card reveal" data-accent="violet">
+                        <span class="stack-icon" aria-hidden="true">{'</>'}</span>
+                        <h3>Web</h3>
+                        <p>Semantic HTML, modern CSS, vanilla JS — building fast, accessible UIs.</p>
+                    </article>
+                    <article class="stack-card reveal" data-accent="pink">
+                        <span class="stack-icon" aria-hidden="true">📱</span>
+                        <h3>Android</h3>
+                        <p>Native Android apps with thoughtful UX and reliable performance.</p>
+                    </article>
+                    <article class="stack-card reveal" data-accent="cyan">
+                        <span class="stack-icon" aria-hidden="true">🗄️</span>
+                        <h3>Databases</h3>
+                        <p>Schema design, queries, and structuring data for real-world use.</p>
+                    </article>
+                    <article class="stack-card reveal" data-accent="lime">
+                        <span class="stack-icon" aria-hidden="true">⚙️</span>
+                        <h3>Problem Solving</h3>
+                        <p>Data structures, algorithms, and clean code habits.</p>
+                    </article>
+                    <article class="stack-card reveal" data-accent="orange">
+                        <span class="stack-icon" aria-hidden="true">🎨</span>
+                        <h3>UI / UX</h3>
+                        <p>Spacing, type, motion — making interfaces feel considered.</p>
+                    </article>
+                    <article class="stack-card reveal" data-accent="violet">
+                        <span class="stack-icon" aria-hidden="true">🚀</span>
+                        <h3>Shipping</h3>
+                        <p>Git, performance budgets, and an obsession with load times.</p>
+                    </article>
+                </div>
+
+                <!-- Education strip -->
+                <aside class="edu-strip reveal" aria-label="Education">
+                    <div class="edu-dot" aria-hidden="true"></div>
+                    <div class="edu-text">
+                        <span class="edu-year">2022 — 2026</span>
+                        <h3>B.E. Computer Science &amp; Engineering</h3>
+                        <p>VSB College of Engineering and Technical Campus · Final Year</p>
+                    </div>
+                    <span class="edu-pill">CSE</span>
+                </aside>
             </div>
         </section>
 
-        <section id="contact" class="section">
+        <!-- CONTACT -->
+        <section id="contact" class="section section-dark">
             <div class="container">
-                <header class="section-head reveal">
-                    <span class="eyebrow">Contact</span>
-                    <h2 class="section-title">Let's build something together</h2>
-                    <p class="section-sub">Open to internships, freelance, and collaborative opportunities.</p>
-                </header>
-                <div class="contact-grid">
-                    <a class="contact-card reveal" href="mailto:karthickkannakk507@gmail.com">
-                        <span class="contact-icon" aria-hidden="true">✉️</span>
-                        <span class="contact-label">Email</span>
-                        <span class="contact-value">karthickkannakk507@gmail.com</span>
-                    </a>
-                    <a class="contact-card reveal" href="tel:+919842701478">
-                        <span class="contact-icon" aria-hidden="true">📞</span>
-                        <span class="contact-label">Phone</span>
-                        <span class="contact-value">+91 98427 01478</span>
-                    </a>
-                    <div class="contact-card reveal" aria-label="Location">
-                        <span class="contact-icon" aria-hidden="true">📍</span>
-                        <span class="contact-label">Location</span>
-                        <span class="contact-value">Salem, Tamil Nadu, India</span>
+                <div class="contact-wrap">
+                    <header class="section-head section-head-left reveal">
+                        <span class="eyebrow eyebrow-pink">Contact</span>
+                        <h2 class="section-title">
+                            Got an idea?<br>
+                            <span class="gradient-text gradient-pink">Let's build it.</span>
+                        </h2>
+                        <p class="section-sub">
+                            Open to internships, freelance projects, and good conversations.
+                        </p>
+                    </header>
+
+                    <div class="contact-grid">
+                        <a class="contact-card reveal magnetic" href="mailto:karthickkannakk507@gmail.com">
+                            <span class="contact-label">Email</span>
+                            <span class="contact-value">karthickkannakk507@gmail.com</span>
+                            <span class="contact-arrow" aria-hidden="true">→</span>
+                        </a>
+                        <button class="contact-card contact-card-btn reveal magnetic" type="button" data-copy="karthickkannakk507@gmail.com" id="copyEmail">
+                            <span class="contact-label">Quick copy</span>
+                            <span class="contact-value">Click to copy email</span>
+                            <span class="contact-arrow" aria-hidden="true">⧉</span>
+                        </button>
+                        <a class="contact-card reveal magnetic" href="tel:+919842701478">
+                            <span class="contact-label">Phone</span>
+                            <span class="contact-value">+91 98427 01478</span>
+                            <span class="contact-arrow" aria-hidden="true">→</span>
+                        </a>
+                        <div class="contact-card contact-card-static reveal">
+                            <span class="contact-label">Location</span>
+                            <span class="contact-value">Salem, Tamil Nadu, India</span>
+                            <span class="contact-arrow" aria-hidden="true">📍</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -315,12 +391,14 @@
 
     <footer class="footer">
         <div class="container footer-inner">
-            <p>&copy; <span id="year"></span> Karthick Kanna. Built with care.</p>
-            <a href="#home" class="back-to-top" aria-label="Back to top">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+            <p>&copy; <span id="year"></span> Karthick Kanna · Built with care</p>
+            <a href="#home" class="back-to-top magnetic" aria-label="Back to top">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
             </a>
         </div>
     </footer>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
     <script src="script.js" defer></script>
 </body>
