@@ -11,7 +11,7 @@
     const applyTheme = (theme) => {
         root.setAttribute('data-theme', theme);
         const meta = document.querySelector('meta[name="theme-color"]:not([media])');
-        if (meta) meta.setAttribute('content', theme === 'dark' ? '#0A0114' : '#FAFAF9');
+        if (meta) meta.setAttribute('content', theme === 'dark' ? '#0c090d' : '#FAFAF9');
     };
 
     const initialTheme = stored || 'dark';
@@ -171,23 +171,6 @@
             document.body.removeChild(ta);
         }
     });
-
-    /* ---------- Magnetic buttons (subtle) ---------- */
-    if (!prefersReducedMotion && window.matchMedia('(pointer: fine)').matches) {
-        const magnets = document.querySelectorAll('.magnetic');
-        magnets.forEach((el) => {
-            const strength = 0.25;
-            el.addEventListener('mousemove', (e) => {
-                const rect = el.getBoundingClientRect();
-                const x = e.clientX - rect.left - rect.width / 2;
-                const y = e.clientY - rect.top - rect.height / 2;
-                el.style.transform = `translate(${x * strength}px, ${y * strength}px)`;
-            });
-            el.addEventListener('mouseleave', () => {
-                el.style.transform = '';
-            });
-        });
-    }
 
     /* ---------- Footer year ---------- */
     const yearEl = document.getElementById('year');
